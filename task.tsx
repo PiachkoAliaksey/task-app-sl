@@ -127,15 +127,15 @@ const List = () => {
   }, [])
 
   useEffect(() => {
-    const timerId = setTimeout(
+    const timerId = setInterval(
       () => (action === 'add' ? handleAddItem() : handleRemoveItems()),
       1000
     );
 
     return () => {
-      clearTimeout(timerId)
+      clearInterval(timerId)
     }
-  }, [items, action,handleAddItem, handleRemoveItems]);
+  }, [action,handleAddItem, handleRemoveItems]);
 
   return (
     <ul className="list">
